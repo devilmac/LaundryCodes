@@ -48,7 +48,12 @@ android {
         }
     }
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    if (System.getenv("TRAVIS") == null) {
+        buildToolsVersion rootProject.ext.buildToolsVersion
+    } else {
+        buildToolsVersion rootProject.ext.travisBuildToolsVersion
+    }
 
     defaultConfig {
         applicationId packageName
