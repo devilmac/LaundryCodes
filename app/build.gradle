@@ -32,16 +32,18 @@ versionPlugin {
 
 
 android {
-    signingConfigs {
-        release {
-            try {
-                keyAlias 'tagcodedress'
-                keyPassword "$KEY_PASSWORD"
-                storeFile file('/USERS/federico/.keystore/federico.colantoni.jks')
-                storePassword "$KEYSTORE_PASSWORD"
-            }
-            catch (ignored) {
-                throw new InvalidUserDataException('You should define KEYSTORE_PASSWORD and KEY_PASSWORD in gradle.properties.')
+    if (System.getenv("TRAVIS") == null) {
+        signingConfigs {
+            release {
+                try {
+                    keyAlias 'tagcodedress'
+                    keyPassword "$KEY_PASSWORD"
+                    storeFile file('/USERS/federico/.keystore/federico.colantoni.jks')
+                    storePassword "$KEYSTORE_PASSWORD"
+                }
+                catch (ignored) {
+                    throw new InvalidUserDataException('You should define KEYSTORE_PASSWORD and KEY_PASSWORD in gradle.properties.')
+                }
             }
         }
     }
@@ -57,13 +59,17 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            debuggable false
-            jniDebuggable false
-            zipAlignEnabled true
-            signingConfig signingConfigs.release
+            if (System.getenv("TRAVIS") == null) {
+                minifyEnabled true
+                shrinkResources true
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                debuggable false
+                jniDebuggable false
+                zipAlignEnabled true
+                signingConfig signingConfigs.release
+            } else {
+                minifyEnabled false
+            }
         }
         debug {
             minifyEnabled false
