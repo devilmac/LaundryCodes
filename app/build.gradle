@@ -3,7 +3,18 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'versionPlugin'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.getkeepsafe.dexcount'
-apply plugin: 'com.github.gfx.ribbonizer'
+
+if (System.getenv("TRAVIS") == null) {
+    apply plugin: 'com.github.gfx.ribbonizer'
+
+    ribbonizer {
+
+        builder { variant, iconFile ->
+
+            return yellowRibbonFilter(variant, iconFile)
+        }
+    }
+}
 
 def packageName = 'com.colantoni.federico.projects.tagcodedress'
 
@@ -18,13 +29,7 @@ versionPlugin {
     ]
 }
 
-ribbonizer {
 
-    builder { variant, iconFile ->
-
-        return yellowRibbonFilter(variant, iconFile)
-    }
-}
 
 android {
     signingConfigs {
