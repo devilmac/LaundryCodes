@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="laundryCodesWashingImages">
+        <item>@raw/waschen</item>
+        <item>@raw/waschen_30</item>
+        <item>@raw/waschen_40</item>
+        <item>@raw/waschen_50</item>
+        <item>@raw/waschen_60</item>
+        <item>@raw/nicht_waschen</item>
+        <item>@raw/handwaschen</item>
+    </array>
+
+    <array name="laundryCodesBleachingImages">
+        <item>@raw/bleichen</item>
+        <item>@raw/bleichen_mit_chlor</item>
+        <item>@raw/nicht_bleichen</item>
+        <item>@raw/nicht_bleichen_v2</item>
+        <item>@raw/sauerstoffbleichen</item>
+    </array>
+
+    <array name="laundryCodesDryingImages">
+        <item>@raw/trocknen</item>
+        <item>@raw/trommeltrocknen</item>
+        <item>@raw/trommeltrocknen_1</item>
+        <item>@raw/trommeltrocknen_2</item>
+        <item>@raw/nicht_trommeltrocknen</item>
+        <item>@raw/trocknen_leine</item>
+        <item>@raw/trocknen_liegend</item>
+        <item>@raw/trocknen_tropfnass</item>
+        <item>@raw/trocknen_schatten</item>
+        <item>@raw/trocknen_liegend_im_schatten</item>
+        <item>@raw/trocknen_leine_im_schatten</item>
+        <item>@raw/trocknen_tropfnass_im_schatten</item>
+    </array>
+
+    <array name="laundryCodesIroningImages">
+        <item>@raw/bugeln</item>
+        <item>@raw/bugeln_1</item>
+        <item>@raw/bugeln_2</item>
+        <item>@raw/bugeln_3</item>
+        <item>@raw/nicht_bugeln</item>
+    </array>
+
+    <array name="laundryCodesCleaningImages">
+        <item>@raw/professionelle_reinigung</item>
+        <item>@raw/professionelle_reinigung_f</item>
+        <item>@raw/professionelle_reinigung_fs</item>
+        <item>@raw/professionelle_reinigung_fss</item>
+        <item>@raw/professionelle_reinigung_p</item>
+        <item>@raw/professionelle_reinigung_ps</item>
+        <item>@raw/professionelle_reinigung_pss</item>
+        <item>@raw/professionelle_reinigung_w</item>
+        <item>@raw/professionelle_reinigung_ws</item>
+        <item>@raw/professionelle_reinigung_wss</item>
+        <item>@raw/nicht_nassreinigen</item>
+        <item>@raw/nicht_chemisch_reinigen</item>
+    </array>
+</resources>

@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'versionPlugin'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.getkeepsafe.dexcount'
+apply plugin: 'com.github.gfx.ribbonizer'
+
+def packageName = 'com.colantoni.federico.projects.tagcodedress'
+
+versionPlugin {
+    buildTypesMatcher = 'release'
+
+    fileNameFormat = '$customName-$versionName(b$versionCode)-$buildType'
+
+    customNameMapping = [
+            'debug'  : rootProject.ext.debugAppName,
+            'release': rootProject.ext.releaseAppName
+    ]
+}
+
+ribbonizer {
+
+    builder { variant, iconFile ->
+
+        return yellowRibbonFilter(variant, iconFile)
+    }
+}
+
+android {
+    signingConfigs {
+        release {
+            try {
+                keyAlias 'tagcodedress'
+                keyPassword "$KEY_PASSWORD"
+                storeFile file('/USERS/federico/.keystore/federico.colantoni.jks')
+                storePassword "$KEYSTORE_PASSWORD"
+            }
+            catch (ignored) {
+                throw new InvalidUserDataException('You should define KEYSTORE_PASSWORD and KEY_PASSWORD in gradle.properties.')
+            }
+        }
+    }
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId packageName
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable false
+            jniDebuggable false
+            zipAlignEnabled true
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            debuggable true
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-DEBUG'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main { java.srcDirs = ['src/main/java', 'src/androidTest/java', 'src/test/java'] }
+    }
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+}
+
+dependencies {
+    def projectDependencies = rootProject.ext.projectDependencies
+    def androidSupportDependencies = rootProject.ext.androidSupportDependencies
+    def testDependencies = rootProject.ext.testDependencies
+    def appModuleDependencies = rootProject.ext.appModuleDependencies
+    def generalDependencies = rootProject.ext.generalDependencies
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    retrolambdaConfig projectDependencies.retrolambda
+    provided projectDependencies.lombok
+
+    androidTestCompile testDependencies.robotium
+    testCompile testDependencies.roboElectric
+    testCompile 'junit:junit:4.10'
+    testCompile 'org.assertj:assertj-core:1.7.0'
+
+    compile androidSupportDependencies.supportAppCompatV7
+    compile androidSupportDependencies.supportRecyclerView
+    compile androidSupportDependencies.supportDesign
+    compile androidSupportDependencies.supportAnnotations
+    compile appModuleDependencies.butterknife
+    compile appModuleDependencies.sharpSVG
+    compile appModuleDependencies.mosby
+    compile appModuleDependencies.expandableRecyclerView
+    compile generalDependencies.rxJava
+    compile generalDependencies.rxAndroid
+}

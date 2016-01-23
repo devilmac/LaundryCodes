@@ -1,0 +1,78 @@
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+
+    projectDependencies = [
+
+            lombok     : "org.projectlombok:lombok:$LombokVersion",
+            retrolambda: "net.orfjackal.retrolambda:retrolambda:$RetroLambdaVersion",
+            splunkMint : "com.splunk.mint:mint:$SplunkMintVersion"
+    ]
+
+    appModuleDependencies = [
+
+            androidSVG                 : "com.caverock:androidsvg:$AndroidSvgVersion",
+            rxPreferences              : "com.f2prateek.rx.preferences:rx-preferences:$RxPreferencesVersion",
+            gson                       : "com.google.code.gson:gson:$GsonVersion",
+            butterknife                : "com.jakewharton:butterknife:$ButterknifeVersion",
+            fragmentArgs               : "com.hannesdorfmann.fragmentargs:annotation:$FragmentArgsVersion",
+            fragmentArgsProcessor      : "com.hannesdorfmann.fragmentargs:processor:$FragmentArgsVersion",
+            recyclerViewFlexibleDivider: "com.yqritc:recyclerview-flexibledivider:$FlexibleDividerVersion",
+            circularReveal             : "com.github.ozodrukh:CircularReveal:$CircularRevealVersion",
+            photoView                  : "com.github.chrisbanes.photoview:library:$PhotoViewVersion",
+            mosby                      : "com.hannesdorfmann.mosby:mvp:$MosbyMVPVersion",
+            mosbyViewState             : "com.hannesdorfmann.mosby:viewstate:$MosbyMVPVersion",
+            sharpSVG                   : "com.pixplicity.sharp:library:$SharpSVGVersion",
+            sectionedRecyclerView      : "com.github.afollestad:sectioned-recyclerview:$SectionedRecyclerView",
+            expandableRecyclerView     : "com.bignerdranch.android:expandablerecyclerview:$ExpandableRecyclerView",
+            sectionedRVAdapter         : "com.truizlop.sectionedrecyclerview:library:$SectionedRVAdapter"
+    ]
+
+    androidSupportDependencies = [
+
+            supportV4          : "com.android.support:support-v4:$AndroidSupportVersion",
+            supportAppCompatV7 : "com.android.support:appcompat-v7:$AndroidSupportVersion",
+            supportRecyclerView: "com.android.support:recyclerview-v7:$AndroidSupportVersion",
+            supportDesign      : "com.android.support:design:$AndroidSupportVersion",
+            supportPreferences : "com.android.support:preference-v7:$AndroidSupportVersion",
+            supportAnnotations : "com.android.support:support-annotations:$AndroidSupportVersion",
+            supportMultidex    : "com.android.support:multidex:$MultidexVersion",
+            supportPalette     : "com.android.support:palette-v7:$AndroidSupportVersion"
+    ]
+
+    domainDependencies = [
+
+            realmDB         : "io.realm:realm-android:$RealmDBVersion",
+            parceler        : "org.parceler:parceler-api:$ParcelerVersion",
+            parcelerCompiler: "org.parceler:parceler:$ParcelerVersion",
+            snappyDB        : "com.snappydb:snappydb-lib:$SnappyDBVersion",
+            kryo            : "com.esotericsoftware.kryo:kryo:$KryoVersion"
+    ]
+
+    networkModuleDependencies = [
+
+            retrofit             : "com.squareup.retrofit:retrofit:$RetrofitVersion",
+            okhttpUrlConnection  : "com.squareup.okhttp:okhttp-urlconnection:$OkHttpVersion",
+            okhttp               : "com.squareup.okhttp:okhttp:$OkHttpVersion",
+            retrofitJSONConverter: "com.squareup.retrofit:converter-gson:$RetrofitVersion",
+            retrofitRxJava       : "com.squareup.retrofit:adapter-rxjava:$RetrofitVersion",
+            picasso              : "com.squareup.picasso:picasso:$PicassoVersion"
+    ]
+
+    generalDependencies = [
+
+            rxJava       : "io.reactivex:rxjava:$RxJavaVersion",
+            rxAndroid    : "io.reactivex:rxandroid:$RxAndroidVersion",
+            streamSupport: "net.sourceforge.streamsupport:streamsupport:$StreamSupportVersion"
+    ]
+
+    testDependencies = [
+
+            robotium    : "com.jayway.android.robotium:robotium-solo:$RobotiumVersion",
+            roboElectric: "org.robolectric:robolectric:$RoboElectricVersion"
+    ]
+}
