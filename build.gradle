@@ -9,15 +9,15 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:$GradlePluginVersion"
-        classpath "me.tatarka:gradle-retrolambda:$RetroLambdaGlobalVersion"
-        classpath "com.github.ben-manes:gradle-versions-plugin:$GradleVersionPluginVersion"
-        classpath "com.github.hamsterksu:android-appversion-gradle-plugin:$AndroidAppVersionPluginVersion"
-        classpath "me.tatarka.retrolambda.projectlombok:lombok.ast:$LombokAstVersion"
-        classpath "com.neenbedankt.gradle.plugins:android-apt:$AndroidAptVersion"
-        classpath "com.getkeepsafe.dexcount:dexcount-gradle-plugin:$DexCountVersion"
-        classpath "com.stanfy.android:gradle-android-apt:$StanfyAptVersion"
-        classpath "com.github.gfx.ribbonizer:plugin:$RibbonizerVersion"
+        classpath "com.android.tools.build:gradle:2.0.0-alpha7"
+        classpath "me.tatarka:gradle-retrolambda:3.3.0-beta3"
+        classpath "com.github.ben-manes:gradle-versions-plugin:0.12.0"
+        classpath "com.github.hamsterksu:android-appversion-gradle-plugin:1.2.0"
+        classpath "me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2"
+        classpath "com.neenbedankt.gradle.plugins:android-apt:1.8"
+        classpath "com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.3.1"
+        classpath "com.stanfy.android:gradle-android-apt:1.0.0"
+        classpath "com.github.gfx.ribbonizer:plugin:0.5.0"
     }
     configurations.classpath.exclude group: 'com.android.tools.external.lombok'
 
