@@ -1,6 +1,6 @@
 package com.colantoni.federico.projects.tagcodedress.model;
 
-public class LaundryCodeItem {
+class LaundryCodeItem {
 
     private int imageRes;
 
@@ -59,7 +59,7 @@ public class LaundryCodeItem {
         return result;
     }
 
-    protected boolean canEqual(Object other) {return other instanceof LaundryCodeItem;}
+    private boolean canEqual(Object other) {return other instanceof LaundryCodeItem;}
 
     public String toString() {return "com.colantoni.federico.projects.tagcodedress.model.LaundryCodeItem(imageRes=" + this.imageRes + ", name=" + this.name + ", description=" + this.description + ")";}
 }

@@ -4,7 +4,7 @@ import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
 
 import java.util.List;
 
-public class LaundryCodeItemList implements ParentListItem {
+class LaundryCodeItemList implements ParentListItem {
 
     private List<LaundryCodeItem> laundryCodeItemList;
 
@@ -52,7 +52,7 @@ public class LaundryCodeItemList implements ParentListItem {
         return result;
     }
 
-    protected boolean canEqual(Object other) {return other instanceof LaundryCodeItemList;}
+    private boolean canEqual(Object other) {return other instanceof LaundryCodeItemList;}
 
     public String toString() {return "com.colantoni.federico.projects.tagcodedress.model.LaundryCodeItemList(laundryCodeItemList=" + this.laundryCodeItemList + ")";}
 }
