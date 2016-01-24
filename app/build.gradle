@@ -106,7 +106,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     retrolambdaConfig projectDependencies.retrolambda
-    provided projectDependencies.lombok
 
     androidTestCompile testDependencies.robotium
     testCompile testDependencies.roboElectric
