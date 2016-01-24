@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'versionPlugin'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.getkeepsafe.dexcount'
 
 if (System.getenv("TRAVIS") == null) {
     apply plugin: 'com.github.gfx.ribbonizer'
+    apply plugin: 'versionPlugin'
 
     ribbonizer {
 
@@ -14,22 +14,20 @@ if (System.getenv("TRAVIS") == null) {
             return yellowRibbonFilter(variant, iconFile)
         }
     }
+
+    versionPlugin {
+        buildTypesMatcher = 'release'
+
+        fileNameFormat = '$customName-$versionName(b$versionCode)-$buildType'
+
+        customNameMapping = [
+                'debug'  : rootProject.ext.debugAppName,
+                'release': rootProject.ext.releaseAppName
+        ]
+    }
 }
 
 def packageName = 'com.colantoni.federico.projects.tagcodedress'
-
-versionPlugin {
-    buildTypesMatcher = 'release'
-
-    fileNameFormat = '$customName-$versionName(b$versionCode)-$buildType'
-
-    customNameMapping = [
-            'debug'  : rootProject.ext.debugAppName,
-            'release': rootProject.ext.releaseAppName
-    ]
-}
-
-
 
 android {
     if (System.getenv("TRAVIS") == null) {
